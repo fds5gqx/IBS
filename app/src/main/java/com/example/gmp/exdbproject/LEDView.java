@@ -8,7 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,7 +38,26 @@ public class LEDView extends AppCompatActivity {
                 showColorDialog();
             }
         });
+        final TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
+        tableLayout.setShrinkAllColumns(true) ;
+
+        for (int i = 0; i < 8; i++) {
+            // Creation row
+            final TableRow tableRow = new TableRow(this);
+
+            for(int j = 0 ; j < 37 ; j++){
+                final Button tb = new Button(this);
+                tb.setText("d");
+                tb.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                tableRow.addView(tb);
+            }
+            tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+
+            tableLayout.addView(tableRow);
+        }
     }
+
     public void showColorDialog() {
         ColorPickerDialogBuilder
                 .with(LEDView.this)
