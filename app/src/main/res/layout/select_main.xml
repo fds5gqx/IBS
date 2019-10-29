@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5FBFF"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="30dp"
+                    android:text="안녕하세요!"
+                    android:textColor="#212121"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:id="@+id/testWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="현재 위치의 날씨는 구름 많음,\n기온은 26℃ 입니다."
+                    android:textColor="#212121"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="즐거운 라이딩 되세요!"
+                    android:textColor="#212121"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/Fianece"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bt1"
+                    android:minWidth="250dp"
+                    android:paddingHorizontal="50dp"
+                    android:text="LED 제어"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/Fianece2"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bt1"
+                    android:minWidth="250dp"
+                    android:paddingHorizontal="50dp"
+                    android:text="bluetooth 연결"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/Work"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bt1"
+                    android:minWidth="250dp"
+                    android:paddingHorizontal="50dp"
+                    android:text="현재 위치 확인"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/weather"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bt1"
+                    android:minWidth="250dp"
+                    android:paddingHorizontal="50dp"
+                    android:text="자전거 탑승 시 안전수칙"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bt1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
