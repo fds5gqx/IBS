@@ -4,22 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#212121">
+    android:background="#CCffffff"
+    android:padding="5dp"
+    android:layout_margin="5dp">
 
     <EditText
         android:id="@+id/id_input_sign"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:hint="ID"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff" />
+        android:textColor="#212121"
+        android:textColorHint="#212121" />
 
     <EditText
         android:id="@+id/pwd_input_sign"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:textColor="#212121"
+        android:textColorHint="#212121"
         android:hint="PassWord"
         />
 
