@@ -177,6 +177,14 @@ public class SelectView extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btnsafety = findViewById(R.id.safety);
+        btnsafety.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DangerinfoView.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onDestroy() {
