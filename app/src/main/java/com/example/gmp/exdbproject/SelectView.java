@@ -3,6 +3,7 @@ package com.example.gmp.exdbproject;
 import android.app.Activity;
 import android.content.Intent;
 import android.bluetooth.BluetoothAdapter;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -55,7 +56,10 @@ public class SelectView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.select_main);
+
+
         bt = new BluetoothSPP(this);
         //BluetoothSPP라이브러리 사용을 위해 객체 선언
 

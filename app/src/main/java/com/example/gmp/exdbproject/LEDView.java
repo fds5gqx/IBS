@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,23 +41,35 @@ public class LEDView extends AppCompatActivity {
             }
         });
         final TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
-        tableLayout.setShrinkAllColumns(true) ;
 
+        TableRow.LayoutParams tableParams = new TableRow.LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT);
+
+        int cnt=0;
         for (int i = 0; i < 8; i++) {
             // Creation row
             final TableRow tableRow = new TableRow(this);
+            tableRow.setLayoutParams(tableParams);
 
-            for(int j = 0 ; j < 37 ; j++){
-                final Button tb = new Button(this);
-                tb.setText("d");
-                tb.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+            for(int j = 0 ; j < 32 ; j++){
+                final Button btn = new Button(this);
+                btn.setId(cnt);
+                String text = Integer.toString(cnt);
+                btn.setText(text);
+                btn.setLayoutParams(tableParams);
 
-                tableRow.addView(tb);
+                final int position = cnt;
+
+                btn.setOnClickListener(new Button.OnClickListener(){
+                    public void onClick(View view){
+                        Toast.makeText(getApplicationContext(),"Clicked Position : " + position, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                tableRow.addView(btn);
+                cnt++;
             }
-            tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
-
             tableLayout.addView(tableRow);
         }
+        cnt = 0;
     }
 
     public void showColorDialog() {
