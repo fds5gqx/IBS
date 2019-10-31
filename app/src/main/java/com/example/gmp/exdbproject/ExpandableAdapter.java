@@ -37,7 +37,7 @@ public class ExpandableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 return header;
             case CHILD:
                 TextView itemTextView = new TextView(context);
-                itemTextView.setPadding(subItemPaddingLeft, subItemPaddingTopAndBottom, 0, subItemPaddingTopAndBottom);
+                itemTextView.setPadding(subItemPaddingLeft, subItemPaddingTopAndBottom, subItemPaddingLeft, subItemPaddingTopAndBottom);
                 itemTextView.setTextColor(0x88000000);
                 itemTextView.setLayoutParams(
                         new ViewGroup.LayoutParams(

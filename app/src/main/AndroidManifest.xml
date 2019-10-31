@@ -28,6 +28,7 @@
         <activity android:name=".SelectView"></activity>
         <activity android:name=".GoogleMapEx"></activity>
         <activity android:name=".LEDView"></activity>
+        <activity android:name=".DangerinfoView"></activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAol3uTqhmiGQdH_NNfool4RMA117Dqtik"/>

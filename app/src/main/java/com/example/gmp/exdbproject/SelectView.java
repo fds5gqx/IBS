@@ -182,7 +182,7 @@ public class SelectView extends AppCompatActivity {
                                         + "\n" +
                                         weatherResponse.weather.get(0).main;
 
-                                String stringset = "현재 위치의 날씨는" + weatherResponse.weather.get(0).main +
+                                String stringset = "현재 위치의 날씨는 " + weatherResponse.weather.get(0).main +
                                         ",\n기온은 " + String.format("%.1f", weatherResponse.main.temp - 273) + "℃ 입니다.";
 
                                 weatherData.setText(stringset);

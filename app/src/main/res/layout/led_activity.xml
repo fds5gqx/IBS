@@ -67,7 +67,6 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bt1"
                 android:minWidth="250dp"
-                android:paddingHorizontal="50dp"
                 android:text="저장" />
 
             <Button
@@ -78,7 +77,6 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bt1"
                 android:minWidth="250dp"
-                android:paddingHorizontal="50dp"
                 android:text="불러오기"/>
 
             <Button
@@ -89,7 +87,6 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bt1"
                 android:minWidth="250dp"
-                android:paddingHorizontal="50dp"
                 android:text="리셋" />
 
             <Button
@@ -100,8 +97,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bt1"
                 android:minWidth="250dp"
-                android:paddingHorizontal="50dp"
-                android:text="블루투스 연결" />
+                android:text="블루투스 연결"/>
         </LinearLayout>
         </ScrollView>
     </LinearLayout>

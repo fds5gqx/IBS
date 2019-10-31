@@ -289,15 +289,19 @@ public class LEDView extends AppCompatActivity {
 
     public void onStart() {
         super.onStart();
-        if (!bt.isBluetoothEnabled()) { //
-            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(intent, BluetoothState.REQUEST_ENABLE_BT);
-            //블루투스 연결
+        if(bt.getBluetoothAdapter() == null) {
+            Toast.makeText(LEDView.this, "블루투스를 사용할 수 없습니다.", Toast.LENGTH_SHORT).show();
         } else {
-            if (!bt.isServiceAvailable()) {
-                bt.setupService();
-                bt.startService(BluetoothState.DEVICE_OTHER); //DEVICE_ANDROID는 안드로이드 기기 끼리
-                setup();
+            if (!bt.isBluetoothEnabled()) { //
+                Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(intent, BluetoothState.REQUEST_ENABLE_BT);
+                //블루투스 연결
+            } else {
+                if (!bt.isServiceAvailable()) {
+                    bt.setupService();
+                    bt.startService(BluetoothState.DEVICE_OTHER); //DEVICE_ANDROID는 안드로이드 기기 끼리
+                    setup();
+                }
             }
         }
     }
