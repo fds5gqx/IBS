@@ -117,11 +117,6 @@ public class SelectView extends AppCompatActivity {
 
         }
 
-        /*ImageView rabbit = (ImageView) findViewById(R.id.gif_image);
-        GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(rabbit);
-        Glide.with(this).load(R.drawable.ganan).into(rabbit);*/
-        //배경화면으로 gif이미지 출력
-
         Intent intent = getIntent();
         /*idText = (TextView)findViewById(R.id.textID);
 

@@ -168,7 +168,6 @@ public class GoogleMapEx extends AppCompatActivity
                 ActivityCompat.requestPermissions( this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
             }
-
         }
 
 
