@@ -17,6 +17,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,7 +62,7 @@ public class LEDView extends AppCompatActivity {
             int position = i;
 
             for(int j = 0 ; j < 32 ; j++){
-                final Button btn = new Button(this);
+                final ToggleButton btn = new ToggleButton(this);
                 int setPos = i;
                 if(i==0 && (j%2 == 0)){
                     if(j==0){
@@ -192,9 +193,14 @@ public class LEDView extends AppCompatActivity {
 
                 btn.setOnClickListener(new Button.OnClickListener(){
                     public void onClick(View view){
-                        Toast.makeText(getApplicationContext(),"Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
-                        bt.send("R255G0B255P"+getPos,true);
-                        bt.send("R255G0B0P255",true);
+                        if(btn.isChecked()) {
+                            Toast.makeText(getApplicationContext(), "Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
+                            bt.send("R255G0B255P" + getPos, true);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "LED off", Toast.LENGTH_SHORT).show();
+                            bt.send("R0G0B0P" + getPos,true);
+                        }
                     }
                 });
                 tableRow.addView(btn);
