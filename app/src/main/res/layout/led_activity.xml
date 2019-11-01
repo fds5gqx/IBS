@@ -38,13 +38,6 @@
             </HorizontalScrollView>
         </ScrollView>
 
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="0.3"
-            android:layout_gravity="center">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,16 +63,6 @@
                 android:text="저장" />
 
             <Button
-                android:id="@+id/Work"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_gravity="right"
-                android:layout_margin="10dp"
-                android:background="@drawable/bt1"
-                android:minWidth="250dp"
-                android:text="불러오기"/>
-
-            <Button
                 android:id="@+id/buttonR"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
@@ -99,6 +82,5 @@
                 android:minWidth="250dp"
                 android:text="블루투스 연결"/>
         </LinearLayout>
-        </ScrollView>
     </LinearLayout>
 </LinearLayout>

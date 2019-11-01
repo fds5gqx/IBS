@@ -58,7 +58,7 @@ public class LEDView extends AppCompatActivity {
         });
         final TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
 
-        TableRow.LayoutParams tableParams = new TableRow.LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams tableParams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 
         for (int i = 0; i < 8; i++) {
             // Creation row
@@ -193,7 +193,8 @@ public class LEDView extends AppCompatActivity {
                 final int getPos = setPos;
                 btn.setId(setPos);
                 String text = Integer.toString(setPos);
-                btn.setText(text);
+                btn.setTextOn(text);
+                btn.setTextOff(text);
                 btn.setLayoutParams(tableParams);
 
                 btn.setOnClickListener(new Button.OnClickListener(){
@@ -321,28 +322,7 @@ public class LEDView extends AppCompatActivity {
     }
 
     public void setup() {
-        /*Button btnSend = findViewById(R.id.Fianece); //데이터 전송
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                int point = 0;
-                int red = 255;
-                int green = 0;
-                int blue = 255;
-                while (true) {
-                    bt.send("R" + red + "G" + green + "B" + blue + "P" + point, true);
-                    if(point == 255) break;
-                    try {
-                        Thread.sleep(100);
-                        point++;
-                        red--;
-                        green++;
-                        blue--;
-                    } catch (InterruptedException e) {
-                        System.out.println(e.getMessage());    //sleep 메소드가 발생시키는 InterruptedException
-                    }
-                }
-            }
-        });*/
+        //setup
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) { // 위에 구현했던 함수를 이용해 Bluetooth기능 제어
