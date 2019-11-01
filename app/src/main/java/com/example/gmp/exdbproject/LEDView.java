@@ -8,7 +8,6 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -38,9 +37,10 @@ public class LEDView extends AppCompatActivity {
     ImageButton colorSelect;
     ImageButton colorpic;
     BluetoothSPP bt;
-    int red = 0;
-    int green = 0;
-    int blue = 0;
+//    Drawable roundDrawable = ContextCompat.getDrawable(this, R.drawable.cerclebutton);
+    int red = 255;
+    int green = 255;
+    int blue = 255;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -197,17 +197,27 @@ public class LEDView extends AppCompatActivity {
                 String text = Integer.toString(setPos);
                 btn.setTextOn(text);
                 btn.setTextOff(text);
-                btn.setLayoutParams(tableParams);
+                btn.setLayoutParams(new TableRow.LayoutParams(150,150));
 
                 btn.setOnClickListener(new Button.OnClickListener(){
                     public void onClick(View view){
                         if(btn.isChecked()) {
                             Toast.makeText(getApplicationContext(), "Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
-                            bt.send("R255G0B255P" + getPos, true);
+                            if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
+                                bt.send("R" + red + "G" + green + "B" + blue + "P" + getPos, true);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
+                            }
                         }
                         else{
                             Toast.makeText(getApplicationContext(), "LED off", Toast.LENGTH_SHORT).show();
-                            bt.send("R0G0B0P" + getPos,true);
+                            if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
+                                bt.send("R0G0B0P" + getPos,true);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });
@@ -283,8 +293,7 @@ public class LEDView extends AppCompatActivity {
 //                        } else {
 //                            colorSelect.setBackground(roundDrawable);
 //                        }
-//                        GradientDrawable bgShape = (GradientDrawable) colorSelect.getBackground();
-//                        bgShape.setColor(getResources().getColor(selectedColor));
+//                        int color = getResources().getColor(selectedColor);
                         red = Color.red(selectedColor);
                         green = Color.green(selectedColor);
                         blue = Color.blue(selectedColor);
