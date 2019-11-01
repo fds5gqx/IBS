@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -35,11 +36,11 @@ import app.akexorcist.bluetotohspp.library.DeviceList;
 public class LEDView extends AppCompatActivity {
 
     ImageButton colorSelect;
+    ImageButton colorpic;
     BluetoothSPP bt;
-//    Drawable roundDrawable = ContextCompat.getDrawable(this, R.drawable.cerclebutton);
-    int red;
-    int green;
-    int blue;
+    int red = 0;
+    int green = 0;
+    int blue = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +50,8 @@ public class LEDView extends AppCompatActivity {
 
         bt = new BluetoothSPP(this);
 
-        colorSelect = (ImageButton) findViewById(R.id.colorpick);
+        colorSelect = (ImageButton) findViewById(R.id.colorpick2);
+        colorpic = (ImageButton) findViewById(R.id.colorpick);
         colorSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -281,11 +283,12 @@ public class LEDView extends AppCompatActivity {
 //                        } else {
 //                            colorSelect.setBackground(roundDrawable);
 //                        }
-//                        int color = getResources().getColor(selectedColor);
+//                        GradientDrawable bgShape = (GradientDrawable) colorSelect.getBackground();
+//                        bgShape.setColor(getResources().getColor(selectedColor));
                         red = Color.red(selectedColor);
                         green = Color.green(selectedColor);
                         blue = Color.blue(selectedColor);
-                        colorSelect.setBackgroundColor(selectedColor);
+                        colorpic.setBackgroundColor(selectedColor);
                     }
                 })
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
