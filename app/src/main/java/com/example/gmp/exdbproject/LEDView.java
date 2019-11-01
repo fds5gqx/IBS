@@ -21,6 +21,7 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
@@ -35,7 +36,11 @@ public class LEDView extends AppCompatActivity {
 
     ImageButton colorSelect;
     BluetoothSPP bt;
-//    Drawable roundDrawable = getResources().getDrawable(R.drawable.cerclebutton);
+//    Drawable roundDrawable = ContextCompat.getDrawable(this, R.drawable.cerclebutton);
+    int red;
+    int green;
+    int blue;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -253,13 +258,17 @@ public class LEDView extends AppCompatActivity {
                 .setTitle("Choose color")
                 .initialColor(Color.WHITE)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                .lightnessSliderOnly()
+                .noSliders()
                 .density(12)
                 .setOnColorSelectedListener(new OnColorSelectedListener() {
                     @Override
                     public void onColorSelected(int selectedColor) {
 //                        toast("onColorSelected: 0x" + Integer.toHexString(selectedColor));
 //                        roundDrawable.setColorFilter(selectedColor, PorterDuff.Mode.SRC_ATOP);
+                        Toast.makeText(LEDView.this,
+                                "R: "+Color.red(selectedColor)+" G: "+Color.green(selectedColor)+" B: "+Color.blue(selectedColor),
+                                Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .setPositiveButton("ok", new ColorPickerClickListener() {
@@ -271,6 +280,11 @@ public class LEDView extends AppCompatActivity {
 //                        } else {
 //                            colorSelect.setBackground(roundDrawable);
 //                        }
+//                        int color = getResources().getColor(selectedColor);
+                        red = Color.red(selectedColor);
+                        green = Color.green(selectedColor);
+                        blue = Color.blue(selectedColor);
+                        colorSelect.setBackgroundColor(selectedColor);
                     }
                 })
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
