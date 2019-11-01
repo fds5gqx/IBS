@@ -81,7 +81,7 @@
 
             <Button
                 android:id="@+id/Fianece2"
-                android:layout_width="130dp"
+                android:layout_width="110dp"
                 android:layout_height="40dp"
                 android:layout_gravity="right"
                 android:layout_margin="10dp"
@@ -91,7 +91,7 @@
 
             <Button
                 android:id="@+id/buttonR"
-                android:layout_width="130dp"
+                android:layout_width="110dp"
                 android:layout_height="40dp"
                 android:layout_gravity="right"
                 android:layout_margin="10dp"
@@ -101,7 +101,7 @@
 
             <Button
                 android:id="@+id/buttonB"
-                android:layout_width="130dp"
+                android:layout_width="110dp"
                 android:layout_height="40dp"
                 android:layout_gravity="right"
                 android:layout_margin="10dp"
