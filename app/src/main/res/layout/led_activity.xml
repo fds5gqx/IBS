@@ -87,7 +87,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/bt1"
                 android:minWidth="250dp"
-                android:text="저장" />
+                android:text="불러오기" />
 
             <Button
                 android:id="@+id/buttonR"

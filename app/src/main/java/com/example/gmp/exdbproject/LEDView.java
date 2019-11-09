@@ -19,6 +19,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -27,6 +28,13 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -36,11 +44,26 @@ public class LEDView extends AppCompatActivity {
 
     ImageButton colorSelect;
     ImageButton colorpic;
+
+    Boolean resetCheck = true;
+
     BluetoothSPP bt;
+    Button load;
+    Button reset;
+
+    ToggleButton btn;
 //    Drawable roundDrawable = ContextCompat.getDrawable(this, R.drawable.cerclebutton);
     int red = 255;
     int green = 255;
     int blue = 255;
+
+    FirebaseDatabase fdb = FirebaseDatabase.getInstance();
+    DatabaseReference rdb = fdb.getReference("user");
+
+    ArrayList<String> points = new ArrayList<>();
+
+    TableRow tableRow;
+    TableLayout tableLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +73,9 @@ public class LEDView extends AppCompatActivity {
 
         bt = new BluetoothSPP(this);
 
+        Intent intent = getIntent();
+        final String str = intent.getStringExtra("id");
+
         colorSelect = (ImageButton) findViewById(R.id.colorpick2);
         colorpic = (ImageButton) findViewById(R.id.colorpick);
         colorSelect.setOnClickListener(new View.OnClickListener() {
@@ -58,173 +84,72 @@ public class LEDView extends AppCompatActivity {
                 showColorDialog();
             }
         });
-        final TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
 
-        TableRow.LayoutParams tableParams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        load = (Button) findViewById(R.id.Fianece2);
+        reset = (Button) findViewById(R.id.buttonR);
 
-        for (int i = 0; i < 8; i++) {
-            // Creation row
-            final TableRow tableRow = new TableRow(this);
-            tableRow.setLayoutParams(tableParams);
-            int position = i;
+        setPixels(str);
 
-            for(int j = 0 ; j < 32 ; j++){
-                final ToggleButton btn = new ToggleButton(this);
-                int setPos = i;
-                if(i==0 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 15;
-                    }
-                    else{
-                        setPos = position;
-                        position += 15;
-                    }
-
-                }
-                else if(i==0 && (j%2 == 1)){
-                    setPos = position;
-                    position += 1;
-                }
-
-                if(i==1 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 13;
-                    }
-                    else{
-                        setPos = position;
-                        position += 13;
-                    }
-                }
-                else if(i==1 && (j%2 == 1)){
-                    setPos = position;
-                    position += 3;
-                }
-
-                if(i==2 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 11;
-                    }
-                    else{
-                        setPos = position;
-                        position += 11;
-                    }
-                }
-                else if(i==2 && (j%2 == 1)){
-                    setPos = position;
-                    position += 5;
-                }
-
-                if(i==3 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 9;
-                    }
-                    else{
-                        setPos = position;
-                        position += 9;
-                    }
-                }
-                else if(i==3 && (j%2 == 1)){
-                    setPos = position;
-                    position += 7;
-                }
-
-                if(i==4 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 7;
-                    }
-                    else{
-                        setPos = position;
-                        position += 7;
-                    }
-                }
-                else if(i==4 && (j%2 == 1)){
-                    setPos = position;
-                    position += 9;
-                }
-
-                if(i==5 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 5;
-                    }
-                    else{
-                        setPos = position;
-                        position += 5;
-                    }
-                }
-                else if(i==5 && (j%2 == 1)){
-                    setPos = position;
-                    position += 11;
-                }
-
-                if(i==6 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 3;
-                    }
-                    else{
-                        setPos = position;
-                        position += 3;
-                    }
-                }
-                else if(i==6 && (j%2 == 1)){
-                    setPos = position;
-                    position += 13;
-                }
-
-                if(i==7 && (j%2 == 0)){
-                    if(j==0){
-                        setPos = i;
-                        position += 1;
-                    }
-                    else{
-                        setPos = position;
-                        position += 1;
-                    }
-                }
-                else if(i==7 && (j%2 == 1)){
-                    setPos = position;
-                    position += 15;
-                }
-
-                final int getPos = setPos;
-                btn.setId(setPos);
-                String text = Integer.toString(setPos);
-                btn.setTextOn(text);
-                btn.setTextOff(text);
-                btn.setLayoutParams(new TableRow.LayoutParams(150,150));
-
-                btn.setOnClickListener(new Button.OnClickListener(){
-                    public void onClick(View view){
-                        if(btn.isChecked()) {
-                            Toast.makeText(getApplicationContext(), "Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
-                            if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
-                                bt.send("R" + red + "G" + green + "B" + blue + "P" + getPos, true);
+        load.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v){
+                rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        //Toast.makeText(getApplicationContext(), dataSnapshot.getValue().toString().replaceAll("=","").replace("{","").replace("}",""), Toast.LENGTH_SHORT).show();
+                        String[] spt = dataSnapshot.getValue().toString().replaceAll("=","").replace("{","").replace("}","").split(",");
+                        for(int i = 0; i < spt.length; i++){
+                            points.add(spt[i]);
+                        }
+                        if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
+                            try{
+                                bt.send("P500R0G0B0",true);
+                                Thread.sleep(100);
+                                for(int j = 0; j<points.size(); j++){
+                                    bt.send(points.get(j),true);
+                                    Thread.sleep(100);
+                                }
                             }
-                            else{
-                                Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
+                            catch (InterruptedException e){
+                                Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "LED off", Toast.LENGTH_SHORT).show();
-                            if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
-                                bt.send("R0G0B0P" + getPos,true);
-                            }
-                            else{
-                                Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
-                            }
+                            Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
                         }
                     }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
+                    }
                 });
-                tableRow.addView(btn);
             }
-            tableLayout.addView(tableRow);
-        }
+        });
+
+        reset.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v){
+                if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
+                    bt.send("P500R0G0B0",true);
+                    tableLayout.removeAllViews();
+                    setPixels(str);
+
+                    rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            rdb.child(str).child("RGBP").removeValue();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
             public void onDataReceived(byte[] data, String message) {
@@ -355,5 +280,206 @@ public class LEDView extends AppCompatActivity {
             }
         }
     }
+
+    public void setPixels(final String str){
+        tableLayout = (TableLayout) findViewById(R.id.table);
+        TableRow.LayoutParams tableParams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+
+        for (int i = 0; i < 8; i++) {
+            // Creation row
+            tableRow = new TableRow(this);
+            tableRow.setLayoutParams(tableParams);
+            int position = i;
+
+            for(int j = 0 ; j < 32 ; j++){
+                btn = new ToggleButton(this);
+                int setPos = i;
+                if(i==0 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 15;
+                    }
+                    else{
+                        setPos = position;
+                        position += 15;
+                    }
+
+                }
+                else if(i==0 && (j%2 == 1)){
+                    setPos = position;
+                    position += 1;
+                }
+
+                if(i==1 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 13;
+                    }
+                    else{
+                        setPos = position;
+                        position += 13;
+                    }
+                }
+                else if(i==1 && (j%2 == 1)){
+                    setPos = position;
+                    position += 3;
+                }
+
+                if(i==2 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 11;
+                    }
+                    else{
+                        setPos = position;
+                        position += 11;
+                    }
+                }
+                else if(i==2 && (j%2 == 1)){
+                    setPos = position;
+                    position += 5;
+                }
+
+                if(i==3 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 9;
+                    }
+                    else{
+                        setPos = position;
+                        position += 9;
+                    }
+                }
+                else if(i==3 && (j%2 == 1)){
+                    setPos = position;
+                    position += 7;
+                }
+
+                if(i==4 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 7;
+                    }
+                    else{
+                        setPos = position;
+                        position += 7;
+                    }
+                }
+                else if(i==4 && (j%2 == 1)){
+                    setPos = position;
+                    position += 9;
+                }
+
+                if(i==5 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 5;
+                    }
+                    else{
+                        setPos = position;
+                        position += 5;
+                    }
+                }
+                else if(i==5 && (j%2 == 1)){
+                    setPos = position;
+                    position += 11;
+                }
+
+                if(i==6 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 3;
+                    }
+                    else{
+                        setPos = position;
+                        position += 3;
+                    }
+                }
+                else if(i==6 && (j%2 == 1)){
+                    setPos = position;
+                    position += 13;
+                }
+
+                if(i==7 && (j%2 == 0)){
+                    if(j==0){
+                        setPos = i;
+                        position += 1;
+                    }
+                    else{
+                        setPos = position;
+                        position += 1;
+                    }
+                }
+                else if(i==7 && (j%2 == 1)){
+                    setPos = position;
+                    position += 15;
+                }
+
+                final int getPos = setPos;
+                btn.setId(setPos);
+                String text = Integer.toString(setPos);
+                btn.setTextOn(text);
+                btn.setTextOff(text);
+                btn.setLayoutParams(new TableRow.LayoutParams(150,150));
+                btn.setPadding(0,0,0,0);
+
+                btn.setOnClickListener(new Button.OnClickListener(){
+                    public void onClick(View view){
+                        if(btn.isChecked()) {
+                            Toast.makeText(getApplicationContext(), "Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
+                            //points.add("R" + red + "G" + green + "B" + blue + "P" + getPos);
+                            rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    rdb.child(str).child("RGBP").child("P"+getPos).setValue("R" + red + "G" + green + "B" + blue);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
+                                String send = "P" + getPos + "R" + red + "G" + green + "B" + blue;
+                                //Toast.makeText(getApplicationContext(),send,Toast.LENGTH_SHORT).show();
+                                bt.send(send, true);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            //Toast.makeText(getApplicationContext(), "LED off", Toast.LENGTH_SHORT).show();
+                            rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    rdb.child(str).child("RGBP").child("P"+getPos).removeValue();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
+                                String del = "P" + Integer.toString(getPos) + "R0G0B0";
+                                //Toast.makeText(getApplicationContext(), del, Toast.LENGTH_SHORT).show();
+                                bt.send(del,true);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+
+                tableRow.addView(btn);
+            }
+            tableLayout.addView(tableRow);
+        }
+    }
+
+
+
 }
 

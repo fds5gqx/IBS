@@ -117,10 +117,10 @@ public class SelectView extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
-        /*idText = (TextView)findViewById(R.id.textID);
+        //idText = (TextView)findViewById(R.id.textID);
 
         final String str = intent.getStringExtra("id");
-        idText.setText("ID : " + str);*/
+        //idText.setText("ID : " + str);
 
         Button btnMap = findViewById(R.id.Work);
         btnMap.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +134,7 @@ public class SelectView extends AppCompatActivity {
         btnLED.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LEDView.class);
+                intent.putExtra("id",str);
                 startActivity(intent);
             }
         });
