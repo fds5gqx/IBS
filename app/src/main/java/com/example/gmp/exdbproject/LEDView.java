@@ -324,8 +324,6 @@ public class LEDView extends AppCompatActivity {
             public void onClick(View v){
                 if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                     bt.send("P500R0G0B0",true);
-                    tableLayout.removeAllViews();
-                    setPixels(str);
 
                     rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -474,11 +472,5 @@ public class LEDView extends AppCompatActivity {
             }
         }
     }
-
-    public void setPixels(final String str){
-            }
-
-
-
 }
 
