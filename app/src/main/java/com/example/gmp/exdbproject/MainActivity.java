@@ -3,6 +3,7 @@ package com.example.gmp.exdbproject;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     EditText passwd; //EditText변수 선언
     Button btn;
     Button btn2; //Button변수 선언
+    ImageView imageView;
+    AnimationDrawable aniCatDrawable;
 
     FirebaseDatabase fdb = FirebaseDatabase.getInstance();
     DatabaseReference rdb = fdb.getReference("user");
@@ -69,34 +73,40 @@ public class MainActivity extends AppCompatActivity {
         final Animation animTrans = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);
         final Animation animTrans2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);
         final Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+
+        imageView = findViewById(R.id.back);
+        aniCatDrawable = (AnimationDrawable) imageView.getDrawable();
+        aniCatDrawable.start();
+
         new Handler().postDelayed(new Runnable()
         {
             @Override
             public void run()
             {
                 //여기에 딜레이 후 시작할 작업들을 입력
-                l_layout3.startAnimation(animTrans2);
-                l_layout.startAnimation(animTrans);
-
-            }
-        }, 2000);
-        animTrans.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
+//                l_layout3.startAnimation(animTrans2);
+//                l_layout.startAnimation(animTrans);
                 l_layout2.setVisibility(View.VISIBLE);
                 l_layout2.startAnimation(animFadeIn);
             }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
+        }, 2500);
+//        animTrans.setAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//                l_layout2.setVisibility(View.VISIBLE);
+//                l_layout2.startAnimation(animFadeIn);
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//        });
         //각각의 변수들과 XML의 View와 연결
 
         btn.setOnClickListener(new View.OnClickListener(){
