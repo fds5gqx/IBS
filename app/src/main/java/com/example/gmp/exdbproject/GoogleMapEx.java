@@ -49,7 +49,6 @@ public class GoogleMapEx extends AppCompatActivity
         implements OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback{
 
-
     private GoogleMap mMap;
     private Marker currentMarker = null;
 
@@ -170,8 +169,6 @@ public class GoogleMapEx extends AppCompatActivity
             }
         }
 
-
-
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -217,8 +214,6 @@ public class GoogleMapEx extends AppCompatActivity
 
     };
 
-
-
     private void startLocationUpdates() {
 
         if (!checkLocationServicesStatus()) {
@@ -253,7 +248,6 @@ public class GoogleMapEx extends AppCompatActivity
 
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -273,7 +267,6 @@ public class GoogleMapEx extends AppCompatActivity
 
     }
 
-
     @Override
     protected void onStop() {
 
@@ -285,9 +278,6 @@ public class GoogleMapEx extends AppCompatActivity
             mFusedLocationClient.removeLocationUpdates(locationCallback);
         }
     }
-
-
-
 
     public String getCurrentAddress(LatLng latlng) {
 
@@ -355,10 +345,7 @@ public class GoogleMapEx extends AppCompatActivity
 
     }
 
-
     public void setDefaultLocation() {
-
-
         //디폴트 위치, Seoul
         LatLng DEFAULT_LOCATION = new LatLng(37.56, 126.97);
         String markerTitle = "위치정보 가져올 수 없음";
@@ -379,8 +366,6 @@ public class GoogleMapEx extends AppCompatActivity
         mMap.moveCamera(cameraUpdate);
 
     }
-
-
     //여기부터는 런타임 퍼미션 처리을 위한 메소드들
     private boolean checkPermission() {
 
@@ -399,8 +384,6 @@ public class GoogleMapEx extends AppCompatActivity
         return false;
 
     }
-
-
 
     /*
      * ActivityCompat.requestPermissions를 사용한 퍼미션 요청의 결과를 리턴받는 메소드입니다.
@@ -425,7 +408,6 @@ public class GoogleMapEx extends AppCompatActivity
                     break;
                 }
             }
-
 
             if ( check_result ) {
 
@@ -452,7 +434,6 @@ public class GoogleMapEx extends AppCompatActivity
 
                 }else {
 
-
                     // "다시 묻지 않음"을 사용자가 체크하고 거부를 선택한 경우에는 설정(앱 정보)에서 퍼미션을 허용해야 앱을 사용할 수 있습니다.
                     Snackbar.make(mLayout, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ",
                             Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
@@ -476,7 +457,7 @@ public class GoogleMapEx extends AppCompatActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(GoogleMapEx.this);
         builder.setTitle("위치 서비스 비활성화");
         builder.setMessage("앱을 사용하기 위해서는 위치 서비스가 필요합니다.\n"
-                + "위치 설정을 수정하실래요?");
+                + "위치 설정을 수정하시겠습니까");
         builder.setCancelable(true);
         builder.setPositiveButton("설정", new DialogInterface.OnClickListener() {
             @Override
@@ -495,7 +476,6 @@ public class GoogleMapEx extends AppCompatActivity
         builder.create().show();
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -510,13 +490,11 @@ public class GoogleMapEx extends AppCompatActivity
 
                         Log.d(TAG, "onActivityResult : GPS 활성화 되있음");
 
-
                         needRequest = true;
 
                         return;
                     }
                 }
-
                 break;
         }
     }

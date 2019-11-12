@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:text="현재 위치의 날씨는 구름 많음,\n기온은 26℃ 입니다."
+                    android:text="Loading"
                     android:textColor="#212121"
                     android:textSize="30dp" />
 

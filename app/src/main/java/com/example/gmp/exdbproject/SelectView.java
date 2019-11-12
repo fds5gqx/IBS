@@ -169,17 +169,8 @@ public class SelectView extends AppCompatActivity {
                                         "Temperature: " +
                                         (weatherResponse.main.temp - 273) +
                                         "\n" +
-                                        /*"Temperature(Min): " +
-                                        weatherResponse.main.temp_min +
-                                        "\n" +
-                                        "Temperature(Max): " +
-                                        weatherResponse.main.temp_max +
-                                        "\n" +*/
                                         "Humidity: " +
-                                        weatherResponse.main.humidity /*+
-                                        "\n" +
-                                        "Pressure: " +
-                                        weatherResponse.main.pressure*/
+                                        weatherResponse.main.humidity
                                         + "\n" +
                                         weatherResponse.weather.get(0).main;
 

@@ -16,7 +16,6 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,11 +23,6 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -45,15 +39,10 @@ public class LEDView extends AppCompatActivity {
     Button load;
     Button reset;
 
-    //    Drawable roundDrawable = ContextCompat.getDrawable(this, R.drawable.cerclebutton);
     int red = 255;
     int green = 255;
     int blue = 255;
 
-    FirebaseDatabase fdb = FirebaseDatabase.getInstance();
-    DatabaseReference rdb = fdb.getReference("user");
-
-    //ArrayList<String> points = new ArrayList<>();
     final DBManager dbm = new DBManager();
 
     @Override
@@ -254,17 +243,6 @@ public class LEDView extends AppCompatActivity {
                                     }
                                 }
                             },str, getPos);
-                            /*rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    rdb.child(str).child("RGBP").child("P"+getPos).removeValue();
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-                                    Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
-                                }
-                            });*/
                             if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                                 String del = "P" + Integer.toString(getPos) + "R0G0B0";
                                 //Toast.makeText(getApplicationContext(), del, Toast.LENGTH_SHORT).show();

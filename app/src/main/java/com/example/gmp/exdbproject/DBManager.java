@@ -1,10 +1,6 @@
 package com.example.gmp.exdbproject;
 
-import android.content.Intent;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,16 +8,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
 
 public class DBManager {
 
     private FirebaseDatabase fdb = FirebaseDatabase.getInstance();
     private DatabaseReference rdb = fdb.getReference("user");
 
-   String password;
    Boolean check = false;
 
 
@@ -49,22 +42,18 @@ public class DBManager {
 
     public void sign(@NonNull final SimpleCallback finishedCallback, final String id, final String pw) {
         rdb.child(id).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
-            //입력된 값을 Firebase와 연동해 DB에 저장
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
                     String str = dataSnapshot.getValue().toString();
                     finishedCallback.callback("This id is already exist");
-                    //Toast.makeText(getApplicationContext(), "This id is already exist", Toast.LENGTH_SHORT).show();
                     //ID중복을 체크하고 알려줌
                 } catch (Exception e) {
                     rdb.child(id).child("password").setValue(pw);
                     finishedCallback.callback("Sign Up!!");
-                    //Toast.makeText(getApplicationContext(), "Sign Up!!", Toast.LENGTH_SHORT).show();
                     //값 입력 성공시 회원가입 완료 메시지 출력
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 finishedCallback.callback("Sign Up!!");
