@@ -192,10 +192,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Cancel버튼 클릭시 다이얼로그 종료
+
             }
         });
-
-
 
         AlertDialog dialog = ad.create();
         dialog.show();
