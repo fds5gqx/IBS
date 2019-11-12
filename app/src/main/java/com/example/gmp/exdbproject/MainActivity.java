@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOError;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,10 +39,6 @@ public class MainActivity extends AppCompatActivity {
     Button btn2; //Button변수 선언
     ImageView imageView;
     AnimationDrawable aniCatDrawable;
-
-    FirebaseDatabase fdb = FirebaseDatabase.getInstance();
-    DatabaseReference rdb = fdb.getReference("user");
-    //Firebase연결
 
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
@@ -127,37 +124,10 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "check your ID or PW", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },user_id.getText().toString());
-                /*rdb.child(user_id.getText().toString()).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
-                    //Firebase에 연결하여 id값으로 password를 불러옴
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        try {
-                            if (passwd.getText().toString().equals(dataSnapshot.getValue().toString())) {
-                                Toast.makeText(getApplicationContext(), "login sucess", Toast.LENGTH_SHORT).show();
-                                //불러온 password값과 입력한 password값이 일치하면 로그인 성공 메시지 출력
-                                Intent intent = new Intent(getApplicationContext(), SelectView.class); // 다음 넘어갈 클래스 지정
-                                intent.putExtra("id", user_id.getText().toString());
-                                startActivity(intent);
-                                //다음 액티비티로 넘어감
-                                //finish();
-                            } else
-                                Toast.makeText(getApplicationContext(), "check your id or password", Toast.LENGTH_SHORT).show();
-                        }catch(Exception e){
-                            Toast.makeText(getApplicationContext(), "check your id or password", Toast.LENGTH_SHORT).show();
-                            //로그인 실패시 로그인 실패 메시지 출력
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
-                        //DB에러시 메시지 출력
-                    }
-                });*/
             }
         });
 
@@ -185,27 +155,13 @@ public class MainActivity extends AppCompatActivity {
         ad.setPositiveButton("Sign Up", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                rdb.child(signID.getText().toString()).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
-                    //입력된 값을 Firebase와 연동해 DB에 저장
+                DBManager dbm = new DBManager();
+                dbm.sign(new SimpleCallback() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        try{
-                            String str = dataSnapshot.getValue().toString();
-                            Toast.makeText(getApplicationContext(), "This id is already exist", Toast.LENGTH_SHORT).show();
-                            //ID중복을 체크하고 알려줌
-                        }catch(Exception e){
-                            rdb.child(signID.getText().toString()).child("password").setValue(signPW.getText().toString());
-                            rdb.child(signID.getText().toString()).child("cash").setValue(1000000);
-                            Toast.makeText(getApplicationContext(), "Sign Up!!", Toast.LENGTH_SHORT).show();
-                            //값 입력 성공시 회원가입 완료 메시지 출력
-                        }
+                    public void callback(Object data) {
+                        Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
                     }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                },signID.getText().toString(), signPW.getText().toString());
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -213,8 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 //Cancel버튼 클릭시 다이얼로그 종료
             }
         });
-
-
 
         AlertDialog dialog = ad.create();
         dialog.show();

@@ -53,7 +53,8 @@ public class LEDView extends AppCompatActivity {
     FirebaseDatabase fdb = FirebaseDatabase.getInstance();
     DatabaseReference rdb = fdb.getReference("user");
 
-    ArrayList<String> points = new ArrayList<>();
+    //ArrayList<String> points = new ArrayList<>();
+    final DBManager dbm = new DBManager();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -225,18 +226,14 @@ public class LEDView extends AppCompatActivity {
                         if(btn.isChecked()) {
                             Toast.makeText(getApplicationContext(), "Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
                             btn.setBackgroundColor(Color.rgb(red,green,blue));
-                            //points.add("R" + red + "G" + green + "B" + blue + "P" + getPos);
-                            rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                            dbm.setPoints(new SimpleCallback() {
                                 @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    rdb.child(str).child("RGBP").child("P"+getPos).setValue("R" + red + "G" + green + "B" + blue);
+                                public void callback(Object data) {
+                                    if(!data.toString().isEmpty()){
+                                        Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-                                    Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            },str, getPos, red, green, blue);
                             if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                                 String send = "P" + getPos + "R" + red + "G" + green + "B" + blue;
                                 //Toast.makeText(getApplicationContext(),send,Toast.LENGTH_SHORT).show();
@@ -249,7 +246,15 @@ public class LEDView extends AppCompatActivity {
                         else{
                             //Toast.makeText(getApplicationContext(), "LED off", Toast.LENGTH_SHORT).show();
                             btn.setBackgroundColor(Color.WHITE);
-                            rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                            dbm.removePoints(new SimpleCallback() {
+                                @Override
+                                public void callback(Object data) {
+                                    if(!data.toString().isEmpty()){
+                                        Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            },str, getPos);
+                            /*rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     rdb.child(str).child("RGBP").child("P"+getPos).removeValue();
@@ -259,7 +264,7 @@ public class LEDView extends AppCompatActivity {
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
                                     Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
                                 }
-                            });
+                            });*/
                             if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                                 String del = "P" + Integer.toString(getPos) + "R0G0B0";
                                 //Toast.makeText(getApplicationContext(), del, Toast.LENGTH_SHORT).show();
@@ -279,20 +284,21 @@ public class LEDView extends AppCompatActivity {
 
         load.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View v){
-                rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                dbm.setAll(new SimpleCallbackArray() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        //Toast.makeText(getApplicationContext(), dataSnapshot.getValue().toString().replaceAll("=","").replace("{","").replace("}",""), Toast.LENGTH_SHORT).show();
-                        String[] spt = dataSnapshot.getValue().toString().replaceAll("=","").replace("{","").replace("}","").split(",");
-                        for(int i = 0; i < spt.length; i++){
-                            points.add(spt[i]);
+                    public void callback(Object data) {
+                        if(!data.toString().isEmpty()){
+                            Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
                         }
+                    }
+                    @Override
+                    public void callbackArray(ArrayList<String> data) {
                         if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                             try{
                                 bt.send("P500R0G0B0",true);
                                 Thread.sleep(100);
-                                for(int j = 0; j<points.size(); j++){
-                                    bt.send(points.get(j),true);
+                                for(int j = 0; j<data.size(); j++){
+                                    bt.send(data.get(j),true);
                                     Thread.sleep(100);
                                 }
                             }
@@ -304,12 +310,7 @@ public class LEDView extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
                         }
                     }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                }, str);
             }
         });
 
@@ -317,18 +318,14 @@ public class LEDView extends AppCompatActivity {
             public void onClick(View v){
                 if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                     bt.send("P500R0G0B0",true);
-
-                    rdb.child(str).child("RGBP").addListenerForSingleValueEvent(new ValueEventListener() {
+                    dbm.removeAll(new SimpleCallback() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            rdb.child(str).child("RGBP").removeValue();
+                        public void callback(Object data) {
+                            if(!data.toString().isEmpty()){
+                                Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                            }
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            Toast.makeText(getApplicationContext(), "DB error", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    },str);
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
