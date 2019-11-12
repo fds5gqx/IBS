@@ -128,7 +128,7 @@ public class DBManager {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                finishedCallback.callback("DB Error");
+                finishedCallback.callback("DB Error!");
             }
         });
     }
