@@ -70,6 +70,7 @@ public class LEDView extends AppCompatActivity {
 
         final TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
         TableRow.LayoutParams tableParams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        //테이블 레이아웃과 파라미터 선언
 
         for (int i = 0; i < 8; i++) {
             // Creation row
@@ -77,7 +78,7 @@ public class LEDView extends AppCompatActivity {
             tableRow.setLayoutParams(tableParams);
             int position = i;
 
-            for(int j = 0 ; j < 32 ; j++){
+            for(int j = 0 ; j < 32 ; j++){ //LED배열에 맞춰 ID 및 좌표값 설정
                 final ToggleButton btn = new ToggleButton(this);
                 int setPos = i;
                 if(i==0 && (j%2 == 0)){
@@ -213,40 +214,43 @@ public class LEDView extends AppCompatActivity {
                 btn.setOnClickListener(new Button.OnClickListener(){
                     public void onClick(View view){
                         if(btn.isChecked()) {
-                            Toast.makeText(getApplicationContext(), "Clicked Position : " + getPos, Toast.LENGTH_SHORT).show();
                             btn.setBackgroundColor(Color.rgb(red,green,blue));
+                            //버튼이 클릭됬을 때 설정된 색으로 변경
                             dbm.setPoints(new SimpleCallback() {
                                 @Override
                                 public void callback(Object data) {
                                     if(!data.toString().isEmpty()){
                                         Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                                        //에러가 났을 경우 에러메시지 표시
                                     }
                                 }
                             },str, getPos, red, green, blue);
+                            //DB로 값을 전송하는 메소드 실행
                             if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                                 String send = "P" + getPos + "R" + red + "G" + green + "B" + blue;
-                                //Toast.makeText(getApplicationContext(),send,Toast.LENGTH_SHORT).show();
                                 bt.send(send, true);
+                                //블루투스로 좌표값 및 색상값 전송
                             }
                             else{
                                 Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
-                            //Toast.makeText(getApplicationContext(), "LED off", Toast.LENGTH_SHORT).show();
                             btn.setBackgroundColor(Color.WHITE);
+                            //버튼의 클릭이 false가 될 경우 색을 지움
                             dbm.removePoints(new SimpleCallback() {
                                 @Override
                                 public void callback(Object data) {
                                     if(!data.toString().isEmpty()){
                                         Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                                        //에러가 났을 경우 에러메시지 표시
                                     }
                                 }
                             },str, getPos);
                             if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
                                 String del = "P" + Integer.toString(getPos) + "R0G0B0";
-                                //Toast.makeText(getApplicationContext(), del, Toast.LENGTH_SHORT).show();
                                 bt.send(del,true);
+                                //해당 좌표의 LED를 끄도록 값을 전송
                             }
                             else{
                                 Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();
@@ -254,7 +258,6 @@ public class LEDView extends AppCompatActivity {
                         }
                     }
                 });
-
                 tableRow.addView(btn);
             }
             tableLayout.addView(tableRow);
@@ -267,8 +270,10 @@ public class LEDView extends AppCompatActivity {
                     public void callback(Object data) {
                         if(!data.toString().isEmpty()){
                             Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                            //에러가 났을 경우 에러메시지 표시
                         }
                     }
+                    //DB의 값을 불러오는 메소드 실행
                     @Override
                     public void callbackArray(ArrayList<String> data) {
                         if(bt.getServiceState() == BluetoothState.STATE_CONNECTED){
@@ -278,6 +283,7 @@ public class LEDView extends AppCompatActivity {
                                 for(int j = 0; j<data.size(); j++){
                                     bt.send(data.get(j),true);
                                     Thread.sleep(100);
+                                    //배열을 받았을 경우(불러오기) 딜레이를 주어 여러값을 오차없이 전송
                                 }
                             }
                             catch (InterruptedException e){
@@ -301,9 +307,11 @@ public class LEDView extends AppCompatActivity {
                         public void callback(Object data) {
                             if(!data.toString().isEmpty()){
                                 Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
+                                //에러가 났을 경우 에러메시지 표시
                             }
                         }
                     },str);
+                    //DB의 값을 지우는 메소드 실행
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Bluetooth disconnected",Toast.LENGTH_SHORT).show();

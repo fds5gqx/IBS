@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 },user_id.getText().toString());
+                //DB의 pw값을 받아오는 메소드 실행
             }
         });
 
@@ -149,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),data.toString(),Toast.LENGTH_SHORT).show();
                     }
                 },signID.getText().toString(), signPW.getText().toString());
+                //DB로 id 및 pw값을 저장하는 메소드 실행
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
