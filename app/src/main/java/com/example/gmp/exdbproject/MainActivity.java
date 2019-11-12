@@ -27,6 +27,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOError;
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText user_id;
@@ -112,22 +115,22 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) { //로그인 기능
-
                 DBManager dbm = new DBManager();
-                String checkPW = dbm.getPW(user_id.getText().toString());
-                System.out.println(checkPW);
-
-                if(passwd.getText().toString().equals(checkPW)){
-                    Toast.makeText(getApplicationContext(), "login sucess", Toast.LENGTH_SHORT).show();
-                    //불러온 password값과 입력한 password값이 일치하면 로그인 성공 메시지 출력
-                    Intent intent = new Intent(getApplicationContext(), SelectView.class); // 다음 넘어갈 클래스 지정
-                    intent.putExtra("id", user_id.getText().toString());
-                    startActivity(intent);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), checkPW, Toast.LENGTH_SHORT).show();
-                }
-
+                dbm.getPW(new SimpleCallback() {
+                    @Override
+                    public void callback(Object data) {
+                        if(passwd.getText().toString().equals(data.toString())){
+                            Toast.makeText(getApplicationContext(), "login sucess", Toast.LENGTH_SHORT).show();
+                            //불러온 password값과 입력한 password값이 일치하면 로그인 성공 메시지 출력
+                            Intent intent = new Intent(getApplicationContext(), SelectView.class); // 다음 넘어갈 클래스 지정
+                            intent.putExtra("id", user_id.getText().toString());
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },user_id.getText().toString());
                 /*rdb.child(user_id.getText().toString()).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
                     //Firebase에 연결하여 id값으로 password를 불러옴
                     @Override
@@ -217,6 +220,4 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
         //다이얼로그 실행
     }
-
-
 }
