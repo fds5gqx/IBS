@@ -31,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
     private long backPressedTime = 0;
 
     @Override
-    public void onBackPressed() {
-//        mp.stop();
+    public void onBackPressed() { //로그인 화면에서 뒤로가기 버튼을 눌렀을 경우
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
         if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
             super.onBackPressed();
+            //처음 뒤로가기 버튼을 누른 시간으로부터 2초 이내에 한번 더 뒤로가기 버튼을 눌렀을 시 어플리케이션 종료
         } else {
             backPressedTime = tempTime;
             Toast.makeText(this, "한번 더 누르면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
@@ -54,11 +54,7 @@ public class MainActivity extends AppCompatActivity {
         passwd = (EditText)findViewById(R.id.pwd_input);
         btn = (Button)findViewById(R.id.login_button);
         btn2 = (Button)findViewById(R.id.login_button2);
-        final LinearLayout l_layout = (LinearLayout) findViewById(R.id.layout);
         final LinearLayout l_layout2 = (LinearLayout) findViewById(R.id.layout_2);
-        final LinearLayout l_layout3 = (LinearLayout) findViewById(R.id.layout3);
-        final Animation animTrans = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);
-        final Animation animTrans2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);
         final Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 
         imageView = findViewById(R.id.back);
@@ -71,29 +67,10 @@ public class MainActivity extends AppCompatActivity {
             public void run()
             {
                 //여기에 딜레이 후 시작할 작업들을 입력
-//                l_layout3.startAnimation(animTrans2);
-//                l_layout.startAnimation(animTrans);
                 l_layout2.setVisibility(View.VISIBLE);
                 l_layout2.startAnimation(animFadeIn);
             }
         }, 2500);
-//        animTrans.setAnimationListener(new Animation.AnimationListener() {
-//            @Override
-//            public void onAnimationStart(Animation animation) {
-//
-//            }
-//
-//            @Override
-//            public void onAnimationEnd(Animation animation) {
-//                l_layout2.setVisibility(View.VISIBLE);
-//                l_layout2.startAnimation(animFadeIn);
-//            }
-//
-//            @Override
-//            public void onAnimationRepeat(Animation animation) {
-//
-//            }
-//        });
         //각각의 변수들과 XML의 View와 연결
 
         btn.setOnClickListener(new View.OnClickListener(){

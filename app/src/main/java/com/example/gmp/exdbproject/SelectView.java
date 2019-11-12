@@ -163,16 +163,16 @@ public class SelectView extends AppCompatActivity {
                                 WeatherResponse weatherResponse = response.body();
                                 assert weatherResponse != null;
 
-                                String stringBuilder = "Country: " +
-                                        weatherResponse.sys.country +
-                                        "\n" +
-                                        "Temperature: " +
-                                        (weatherResponse.main.temp - 273) +
-                                        "\n" +
-                                        "Humidity: " +
-                                        weatherResponse.main.humidity
-                                        + "\n" +
-                                        weatherResponse.weather.get(0).main;
+//                                String stringBuilder = "Country: " +
+//                                        weatherResponse.sys.country +
+//                                        "\n" +
+//                                        "Temperature: " +
+//                                        (weatherResponse.main.temp - 273) +
+//                                        "\n" +
+//                                        "Humidity: " +
+//                                        weatherResponse.main.humidity
+//                                        + "\n" +
+//                                        weatherResponse.weather.get(0).main;
 
                                 String stringset = "현재 위치의 날씨는 " + weatherResponse.weather.get(0).main +
                                         ",\n기온은 " + String.format("%.1f", weatherResponse.main.temp - 273) + "℃ 입니다.";

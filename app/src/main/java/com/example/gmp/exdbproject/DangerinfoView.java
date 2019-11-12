@@ -14,9 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DangerinfoView extends AppCompatActivity {
-    private SparseBooleanArray selectedItems = new SparseBooleanArray();
-    private int prePosition = -1;
-    private RecyclerView recyclerview;
+    private RecyclerView customrecycler;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,18 +22,18 @@ public class DangerinfoView extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.info_activity);
 
-        recyclerview = findViewById(R.id.recycler);
-        recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        List<ExpandableAdapter.Item> data = new ArrayList<>();
+        customrecycler = findViewById(R.id.recycler);
+        customrecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        List<ExpandableAdapter.Item> data = new ArrayList<>(); //recyclerview에 추가할 내용을 저장하는 ArrayList
 
-        ExpandableAdapter.Item info1 = new ExpandableAdapter.Item(ExpandableAdapter.HEADER, "음주운전 금지");
+        ExpandableAdapter.Item info1 = new ExpandableAdapter.Item(ExpandableAdapter.HEADER, "음주운전 금지"); //어댑터로 설정한 형식을 기반으로 새로운 항목 추가
         info1.invisibleChildren = new ArrayList<>();
         info1.invisibleChildren.add(new ExpandableAdapter.Item(ExpandableAdapter.CHILD, "음주 자전거 이용 시(혈중 알코올 농도 0.05%이상)" +
                 " 범칙금 3만원이 부과됩니다." +
                 "\n" +
                 "자전거 주행 중 경찰 공무원의 음주측정 요구에 응해야 하며" +
-                " 측정 거부시에는 범칙금 10만원이 부과됩니다.\n"));
-        data.add(info1);
+                " 측정 거부시에는 범칙금 10만원이 부과됩니다.\n")); //추가한 항목의 하위 내용 추가
+        data.add(info1); //ArrayList에 항목과 하위 내용 추가
 
         ExpandableAdapter.Item info2 = new ExpandableAdapter.Item(ExpandableAdapter.HEADER, "안전장비 및 안전모 착용");
         info2.invisibleChildren = new ArrayList<>();
@@ -67,6 +65,6 @@ public class DangerinfoView extends AppCompatActivity {
                 " 사고가 날 수 있습니다.\n"));
         data.add(info5);
 
-        recyclerview.setAdapter(new ExpandableAdapter(data));
+        customrecycler.setAdapter(new ExpandableAdapter(data)); //어댑터에 설정된 디자인과 ArratList에 저장된 내용을 기반으로 recyclerview 생성
     }
 }

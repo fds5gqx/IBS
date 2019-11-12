@@ -58,10 +58,10 @@ public class LEDView extends AppCompatActivity {
 
         colorSelect = (ImageButton) findViewById(R.id.colorpick2);
         colorpic = (ImageButton) findViewById(R.id.colorpick);
-        colorSelect.setOnClickListener(new View.OnClickListener() {
+        colorSelect.setOnClickListener(new View.OnClickListener() { //색상 선택 버튼을 클릭했을 경우
             @Override
             public void onClick(View v) {
-                showColorDialog();
+                showColorDialog(); //컬러피커 다이얼로그 실행
             }
         });
 
@@ -361,45 +361,36 @@ public class LEDView extends AppCompatActivity {
     public void showColorDialog() {
         ColorPickerDialogBuilder
                 .with(LEDView.this)
-                .setTitle("Choose color")
-                .initialColor(Color.WHITE)
-                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                .noSliders()
+                .setTitle("Choose color") //다이얼로그의 제목
+                .initialColor(Color.WHITE) //다이얼로그의 배경색
+                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER) //컬러피커의 형태 설정
+                .noSliders() //슬라이더 설정 x
                 .density(12)
-                .setOnColorSelectedListener(new OnColorSelectedListener() {
+                .setOnColorSelectedListener(new OnColorSelectedListener() { //컬러피커에서 색상을 선택했을 경우
                     @Override
                     public void onColorSelected(int selectedColor) {
-//                        toast("onColorSelected: 0x" + Integer.toHexString(selectedColor));
-//                        roundDrawable.setColorFilter(selectedColor, PorterDuff.Mode.SRC_ATOP);
                         Toast.makeText(LEDView.this,
                                 "R: "+Color.red(selectedColor)+" G: "+Color.green(selectedColor)+" B: "+Color.blue(selectedColor),
-                                Toast.LENGTH_SHORT).show();
+                                Toast.LENGTH_SHORT).show(); //선택한 색상의 색상값을 r, g, b로 나누어 토스트 메세지로 출력
 
                     }
                 })
-                .setPositiveButton("ok", new ColorPickerClickListener() {
+                .setPositiveButton("ok", new ColorPickerClickListener() { //컬러피커에서 OK버튼을 누를 경우
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-//                        changeBackgroundColor(selectedColor);
-//                        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-//                            colorSelect.setBackgroundDrawable(roundDrawable);
-//                        } else {
-//                            colorSelect.setBackground(roundDrawable);
-//                        }
-//                        int color = getResources().getColor(selectedColor);
                         red = Color.red(selectedColor);
                         green = Color.green(selectedColor);
-                        blue = Color.blue(selectedColor);
-                        colorpic.setBackgroundColor(selectedColor);
+                        blue = Color.blue(selectedColor); //선택한 색의 색상코드를 r, g, b로 나누어 각각의 색상값을 전역변수에 저장
+                        colorpic.setBackgroundColor(selectedColor); //컬러피커 버튼의 배경색을 선택한 색으로 변경
                     }
                 })
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() { //컬러피커에서 cancel버튼을 누를 경우
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 })
                 .build()
-                .show();
+                .show(); //다이얼로그 실행
     }
 
     public void onDestroy() {
