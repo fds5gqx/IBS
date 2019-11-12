@@ -32,11 +32,16 @@ public class DBManager {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                finishedCallback.callback(dataSnapshot.getValue().toString());
+                try {
+                    finishedCallback.callback(dataSnapshot.getValue().toString());
+                }
+                catch(NullPointerException e) {
+                    finishedCallback.callback("Check your id or pw");
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                finishedCallback.callback("This id is already exist");
+                finishedCallback.callback("DB Error");
                 //DB에러시 메시지 출력
             }
         });
