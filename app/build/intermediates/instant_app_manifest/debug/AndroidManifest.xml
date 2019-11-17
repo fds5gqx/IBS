@@ -52,6 +52,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAol3uTqhmiGQdH_NNfool4RMA117Dqtik" />
+        <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

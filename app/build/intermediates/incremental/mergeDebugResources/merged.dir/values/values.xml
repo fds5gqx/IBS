@@ -6017,6 +6017,8 @@
 
 <attr format="boolean" name="uiScrollGestures"/>
 
+<attr format="boolean" name="uiScrollGesturesDuringRotateOrZoom"/>
+
 <attr format="boolean" name="uiTiltGestures"/>
 
 <attr format="boolean" name="uiZoomControls"/>

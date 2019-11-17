@@ -6084,38 +6084,43 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int uiTiltGestures=0x7f0302ac;
+    public static final int uiScrollGesturesDuringRotateOrZoom=0x7f0302ac;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int uiZoomControls=0x7f0302ad;
+    public static final int uiTiltGestures=0x7f0302ad;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int uiZoomGestures=0x7f0302ae;
+    public static final int uiZoomControls=0x7f0302ae;
+    /**
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     */
+    public static final int uiZoomGestures=0x7f0302af;
     /**
      * Enable compat padding.
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int useCompatPadding=0x7f0302af;
+    public static final int useCompatPadding=0x7f0302b0;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int useMaterialThemeColors=0x7f0302b0;
+    public static final int useMaterialThemeColors=0x7f0302b1;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int useViewLifecycle=0x7f0302b1;
+    public static final int useViewLifecycle=0x7f0302b2;
     /**
      * <p>May be a string value, using '\\;' to escape characters such as
      * '\\n' or '\\uxxxx' for a unicode character;
      */
-    public static final int viewInflaterClass=0x7f0302b2;
+    public static final int viewInflaterClass=0x7f0302b3;
     /**
      * Voice button icon
      * <p>May be a reference to another resource, in the form
@@ -6123,7 +6128,7 @@ public final class R {
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      */
-    public static final int voiceIcon=0x7f0302b3;
+    public static final int voiceIcon=0x7f0302b4;
     /**
      * <p>Must be one of the following constant values.</p>
      * <table>
@@ -6135,14 +6140,14 @@ public final class R {
      * <tr><td>FLOWER</td><td>0</td><td></td></tr>
      * </table>
      */
-    public static final int wheelType=0x7f0302b4;
+    public static final int wheelType=0x7f0302b5;
     /**
      * Flag indicating whether this window should have an Action Bar
      * in place of the usual title bar.
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowActionBar=0x7f0302b5;
+    public static final int windowActionBar=0x7f0302b6;
     /**
      * Flag indicating whether this window's Action Bar should overlay
      * application content. Does nothing if the window would not
@@ -6150,14 +6155,14 @@ public final class R {
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowActionBarOverlay=0x7f0302b6;
+    public static final int windowActionBarOverlay=0x7f0302b7;
     /**
      * Flag indicating whether action modes should overlay window content
      * when there is not reserved space for their UI (such as an Action Bar).
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowActionModeOverlay=0x7f0302b7;
+    public static final int windowActionModeOverlay=0x7f0302b8;
     /**
      * A fixed height for the window along the major axis of the screen,
      * that is, when in portrait. Can be either an absolute dimension
@@ -6172,7 +6177,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedHeightMajor=0x7f0302b8;
+    public static final int windowFixedHeightMajor=0x7f0302b9;
     /**
      * A fixed height for the window along the minor axis of the screen,
      * that is, when in landscape. Can be either an absolute dimension
@@ -6187,7 +6192,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedHeightMinor=0x7f0302b9;
+    public static final int windowFixedHeightMinor=0x7f0302ba;
     /**
      * A fixed width for the window along the major axis of the screen,
      * that is, when in landscape. Can be either an absolute dimension
@@ -6202,7 +6207,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedWidthMajor=0x7f0302ba;
+    public static final int windowFixedWidthMajor=0x7f0302bb;
     /**
      * A fixed width for the window along the minor axis of the screen,
      * that is, when in portrait. Can be either an absolute dimension
@@ -6217,7 +6222,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowFixedWidthMinor=0x7f0302bb;
+    public static final int windowFixedWidthMinor=0x7f0302bc;
     /**
      * The minimum width the window is allowed to be, along the major
      * axis of the screen.  That is, when in landscape.  Can be either
@@ -6233,7 +6238,7 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowMinWidthMajor=0x7f0302bc;
+    public static final int windowMinWidthMajor=0x7f0302bd;
     /**
      * The minimum width the window is allowed to be, along the minor
      * axis of the screen.  That is, when in portrait.  Can be either
@@ -6249,39 +6254,39 @@ public final class R {
      * The % suffix always means a percentage of the base size;
      * the optional %p suffix provides a size relative to some parent container.
      */
-    public static final int windowMinWidthMinor=0x7f0302bd;
+    public static final int windowMinWidthMinor=0x7f0302be;
     /**
      * Flag indicating whether there should be no title on this window.
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int windowNoTitle=0x7f0302be;
+    public static final int windowNoTitle=0x7f0302bf;
     /**
      * <p>May be a reference to another resource, in the form
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      */
-    public static final int yearSelectedStyle=0x7f0302bf;
+    public static final int yearSelectedStyle=0x7f0302c0;
     /**
      * <p>May be a reference to another resource, in the form
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      */
-    public static final int yearStyle=0x7f0302c0;
+    public static final int yearStyle=0x7f0302c1;
     /**
      * <p>May be a reference to another resource, in the form
      * "<code>@[+][<i>package</i>:]<i>type</i>/<i>name</i></code>" or a theme
      * attribute in the form
      * "<code>?[<i>package</i>:]<i>type</i>/<i>name</i></code>".
      */
-    public static final int yearTodayStyle=0x7f0302c1;
+    public static final int yearTodayStyle=0x7f0302c2;
     /**
      * <p>May be a boolean value, such as "<code>true</code>" or
      * "<code>false</code>".
      */
-    public static final int zOrderOnTop=0x7f0302c2;
+    public static final int zOrderOnTop=0x7f0302c3;
   }
   public static final class bool {
     public static final int abc_action_bar_embed_tabs=0x7f040000;
@@ -10623,10 +10628,10 @@ public final class R {
       0x7f030276, 0x7f030278, 0x7f030279, 0x7f03027a, 
       0x7f03027c, 0x7f03027d, 0x7f03027e, 0x7f03027f, 
       0x7f030282, 0x7f030283, 0x7f03029f, 0x7f0302a0, 
-      0x7f0302a1, 0x7f0302a2, 0x7f0302b2, 0x7f0302b5, 
-      0x7f0302b6, 0x7f0302b7, 0x7f0302b8, 0x7f0302b9, 
-      0x7f0302ba, 0x7f0302bb, 0x7f0302bc, 0x7f0302bd, 
-      0x7f0302be
+      0x7f0302a1, 0x7f0302a2, 0x7f0302b3, 0x7f0302b6, 
+      0x7f0302b7, 0x7f0302b8, 0x7f0302b9, 0x7f0302ba, 
+      0x7f0302bb, 0x7f0302bc, 0x7f0302bd, 0x7f0302be, 
+      0x7f0302bf
     };
     /**
      * <p>This symbol is the offset where the {@link android.R.attr#windowIsFloating}
@@ -14317,7 +14322,7 @@ public final class R {
     public static final int[] ColorPickerPreference={
       0x7f030029, 0x7f03002a, 0x7f0300e9, 0x7f030159, 
       0x7f0301bc, 0x7f0301bd, 0x7f030200, 0x7f030201, 
-      0x7f030202, 0x7f030203, 0x7f0302b4
+      0x7f030202, 0x7f030203, 0x7f0302b5
     };
     /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#alphaSlider}
@@ -17499,7 +17504,7 @@ public final class R {
       0x7f030040, 0x7f030041, 0x7f030052, 0x7f030101, 
       0x7f03010d, 0x7f030124, 0x7f030125, 0x7f030141, 
       0x7f03014a, 0x7f0301e8, 0x7f030208, 0x7f030214, 
-      0x7f03021f, 0x7f030222, 0x7f030226, 0x7f0302af
+      0x7f03021f, 0x7f030222, 0x7f030226, 0x7f0302b0
     };
     /**
      * <p>
@@ -18846,6 +18851,7 @@ public final class R {
      * <tr><td><code>{@link #MapAttrs_uiMapToolbar com.example.gmp.exdbproject:uiMapToolbar}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiRotateGestures com.example.gmp.exdbproject:uiRotateGestures}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiScrollGestures com.example.gmp.exdbproject:uiScrollGestures}</code></td><td></td></tr>
+     * <tr><td><code>{@link #MapAttrs_uiScrollGesturesDuringRotateOrZoom com.example.gmp.exdbproject:uiScrollGesturesDuringRotateOrZoom}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiTiltGestures com.example.gmp.exdbproject:uiTiltGestures}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiZoomControls com.example.gmp.exdbproject:uiZoomControls}</code></td><td></td></tr>
      * <tr><td><code>{@link #MapAttrs_uiZoomGestures com.example.gmp.exdbproject:uiZoomGestures}</code></td><td></td></tr>
@@ -18870,6 +18876,7 @@ public final class R {
      * @see #MapAttrs_uiMapToolbar
      * @see #MapAttrs_uiRotateGestures
      * @see #MapAttrs_uiScrollGestures
+     * @see #MapAttrs_uiScrollGesturesDuringRotateOrZoom
      * @see #MapAttrs_uiTiltGestures
      * @see #MapAttrs_uiZoomControls
      * @see #MapAttrs_uiZoomGestures
@@ -18882,7 +18889,7 @@ public final class R {
       0x7f030178, 0x7f030179, 0x7f03017a, 0x7f03017b, 
       0x7f0301cf, 0x7f0301d2, 0x7f0302a8, 0x7f0302a9, 
       0x7f0302aa, 0x7f0302ab, 0x7f0302ac, 0x7f0302ad, 
-      0x7f0302ae, 0x7f0302b1, 0x7f0302c2
+      0x7f0302ae, 0x7f0302af, 0x7f0302b2, 0x7f0302c3
     };
     /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#ambientEnabled}
@@ -19064,6 +19071,16 @@ public final class R {
      */
     public static final int MapAttrs_uiScrollGestures=17;
     /**
+     * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#uiScrollGesturesDuringRotateOrZoom}
+     * attribute's value can be found in the {@link #MapAttrs} array.
+     *
+     * <p>May be a boolean value, such as "<code>true</code>" or
+     * "<code>false</code>".
+     *
+     * @attr name com.example.gmp.exdbproject:uiScrollGesturesDuringRotateOrZoom
+     */
+    public static final int MapAttrs_uiScrollGesturesDuringRotateOrZoom=18;
+    /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#uiTiltGestures}
      * attribute's value can be found in the {@link #MapAttrs} array.
      *
@@ -19072,7 +19089,7 @@ public final class R {
      *
      * @attr name com.example.gmp.exdbproject:uiTiltGestures
      */
-    public static final int MapAttrs_uiTiltGestures=18;
+    public static final int MapAttrs_uiTiltGestures=19;
     /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#uiZoomControls}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -19082,7 +19099,7 @@ public final class R {
      *
      * @attr name com.example.gmp.exdbproject:uiZoomControls
      */
-    public static final int MapAttrs_uiZoomControls=19;
+    public static final int MapAttrs_uiZoomControls=20;
     /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#uiZoomGestures}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -19092,7 +19109,7 @@ public final class R {
      *
      * @attr name com.example.gmp.exdbproject:uiZoomGestures
      */
-    public static final int MapAttrs_uiZoomGestures=20;
+    public static final int MapAttrs_uiZoomGestures=21;
     /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#useViewLifecycle}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -19102,7 +19119,7 @@ public final class R {
      *
      * @attr name com.example.gmp.exdbproject:useViewLifecycle
      */
-    public static final int MapAttrs_useViewLifecycle=21;
+    public static final int MapAttrs_useViewLifecycle=22;
     /**
      * <p>This symbol is the offset where the {@link com.example.gmp.exdbproject.R.attr#zOrderOnTop}
      * attribute's value can be found in the {@link #MapAttrs} array.
@@ -19112,7 +19129,7 @@ public final class R {
      *
      * @attr name com.example.gmp.exdbproject:zOrderOnTop
      */
-    public static final int MapAttrs_zOrderOnTop=22;
+    public static final int MapAttrs_zOrderOnTop=23;
     /**
      * Attributes that can be used with a MaterialAlertDialog.
      * <p>Includes the following attributes:</p>
@@ -19712,8 +19729,8 @@ public final class R {
      */
     public static final int[] MaterialCalendar={
       0x0101020d, 0x7f0300e4, 0x7f0300e5, 0x7f0300e6, 
-      0x7f0300e7, 0x7f03020e, 0x7f0302bf, 0x7f0302c0, 
-      0x7f0302c1
+      0x7f0300e7, 0x7f03020e, 0x7f0302c0, 0x7f0302c1, 
+      0x7f0302c2
     };
     /**
      * <p>This symbol is the offset where the {@link android.R.attr#windowFullscreen}
@@ -20165,7 +20182,7 @@ public final class R {
      * @see #MaterialCheckBox_useMaterialThemeColors
      */
     public static final int[] MaterialCheckBox={
-      0x7f0302b0
+      0x7f0302b1
     };
     /**
      * <p>
@@ -20193,7 +20210,7 @@ public final class R {
      * @see #MaterialRadioButton_useMaterialThemeColors
      */
     public static final int[] MaterialRadioButton={
-      0x7f0302b0
+      0x7f0302b1
     };
     /**
      * <p>
@@ -21784,7 +21801,7 @@ public final class R {
       0x7f03009c, 0x7f0300bf, 0x7f0300e8, 0x7f03013a, 
       0x7f030153, 0x7f03017c, 0x7f03020b, 0x7f03020c, 
       0x7f030219, 0x7f03021a, 0x7f030247, 0x7f03024c, 
-      0x7f0302b3
+      0x7f0302b4
     };
     /**
      * <p>This symbol is the offset where the {@link android.R.attr#focusable}
@@ -22969,7 +22986,7 @@ public final class R {
      * @see #SwitchMaterial_useMaterialThemeColors
      */
     public static final int[] SwitchMaterial={
-      0x7f0302b0
+      0x7f0302b1
     };
     /**
      * <p>

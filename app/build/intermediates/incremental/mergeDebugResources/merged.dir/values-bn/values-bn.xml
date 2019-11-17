@@ -45,7 +45,7 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"ফোনে খুলুন"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"সাইন-ইন করুন"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Google এর মাধ্যমে সাইন-ইন করুন"</string>
-    <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"অনুসন্ধান সাফ করুন"</string>
+    <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"সার্চ সাফ করুন"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"খুঁজুন"</string>
     <string msgid="730395136688082741" name="search_menu_title">"সার্চ করুন"</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"৯৯৯+"</string>

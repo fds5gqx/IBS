@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\ggrr1\\Desktop\\IBS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ggrr1\\.gradle\\caches\\transforms-2\\files-2.1\\6a0e03f3e4539984e3eb9cbe3867c6ba\\appcompat-1.1.0-rc01\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\ggrr1\\.gradle\\caches\\transforms-2\\files-2.1\\e3a2c045737886c7029f03fb142028c6\\appcompat-1.1.0\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
