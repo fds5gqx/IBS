@@ -183,7 +183,7 @@ public class LEDTest {
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.buttonPanel),
-                                        0),
+                                         0),
                                 3)));
         appCompatButton5.perform(scrollTo(), click());
 

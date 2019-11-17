@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [com.google.android.material:material:1.1.0-alpha09] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\509f3525ad42ddb347a600957be3056c\material-1.1.0-alpha09\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\6dae8b6b7a7186bc9b353b6d6e70c1c3\jetified-colorpicker-0.0.13\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\e3a2c045737886c7029f03fb142028c6\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -64,20 +64,20 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\ggrr1\.gradle\cache
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\cef9ad5dcb223f2ad8857245f1726141\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\b0928dc9528a387720f1e7093cf04d84\bluetoothspp-1.0.0\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\0c76f810c08a0f9396f7238193d8ff0b\firebase-database-collection-16.0.1\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
 	package
 		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
 		INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12
 		INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:11-69
@@ -134,7 +134,7 @@ MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\ggrr1\.gradle\cac
 	android:name
 		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:10:22-76
 application
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:13:5-35:19
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:13:5-36:19
 MERGED from [com.google.android.material:material:1.1.0-alpha09] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\509f3525ad42ddb347a600957be3056c\material-1.1.0-alpha09\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0-alpha09] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\509f3525ad42ddb347a600957be3056c\material-1.1.0-alpha09\AndroidManifest.xml:22:5-20
 MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\6dae8b6b7a7186bc9b353b6d6e70c1c3\jetified-colorpicker-0.0.13\AndroidManifest.xml:12:5-20
@@ -199,42 +199,44 @@ MERGED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\ggrr1\.gradle\caches\tr
 		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme
 		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:20:9-40
+	android:usesCleartextTraffic
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:21:9-44
 activity#com.example.gmp.exdbproject.MainActivity
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:21:9-27:20
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:22:9-28:20
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:21:19-47
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:22:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:26:27-74
 activity#com.example.gmp.exdbproject.SelectView
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:28:9-57
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:29:9-57
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:28:19-45
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:29:19-45
 activity#com.example.gmp.exdbproject.GoogleMapEx
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:29:9-58
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:30:9-58
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:29:19-46
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:30:19-46
 activity#com.example.gmp.exdbproject.LEDView
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:30:9-54
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:31:9-54
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:30:19-42
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:31:19-42
 activity#com.example.gmp.exdbproject.DangerinfoView
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:31:9-61
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:32:9-61
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:31:19-49
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:32:19-49
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:32:9-34:70
+ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:33:9-35:70
 	android:value
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:34:13-68
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:35:13-68
 	android:name
-		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:33:13-58
+		ADDED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:34:13-58
 uses-sdk
 INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml
@@ -520,8 +522,8 @@ ADDED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\ggrr1\.gradle\caches\tra
 	android:name
 		ADDED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\ggrr1\.gradle\caches\transforms-2\files-2.1\b0928dc9528a387720f1e7093cf04d84\bluetoothspp-1.0.0\AndroidManifest.xml:11:19-80
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12 reason: app.akexorcist.bluetotohspp.library has a targetSdkVersion < 4
+IMPLIED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12 reason: app.akexorcist.bluetotohspp.library has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12 reason: app.akexorcist.bluetotohspp.library has a targetSdkVersion < 4
+IMPLIED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12 reason: app.akexorcist.bluetotohspp.library has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-37:12 reason: app.akexorcist.bluetotohspp.library requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\ggrr1\Desktop\IBS\app\src\main\AndroidManifest.xml:2:1-38:12 reason: app.akexorcist.bluetotohspp.library requested WRITE_EXTERNAL_STORAGE

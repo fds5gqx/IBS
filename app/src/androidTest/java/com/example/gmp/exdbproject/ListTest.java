@@ -56,67 +56,6 @@ public class ListTest {
 
     @Test
     public void listTest() {
-//        ViewInteraction appCompatEditText = onView(
-//                allOf(withId(R.id.id_input),
-//                        childAtPosition(
-//                                allOf(withId(R.id.layout_2),
-//                                        childAtPosition(
-//                                                withClassName(is("android.widget.FrameLayout")),
-//                                                2)),
-//                                0),
-//                        isDisplayed()));
-//        appCompatEditText.perform(replaceText("a"), closeSoftKeyboard());
-//
-////        pressBack();
-//
-//        ViewInteraction appCompatEditText2 = onView(
-//                allOf(withId(R.id.pwd_input),
-//                        childAtPosition(
-//                                allOf(withId(R.id.layout_2),
-//                                        childAtPosition(
-//                                                withClassName(is("android.widget.FrameLayout")),
-//                                                2)),
-//                                1),
-//                        isDisplayed()));
-//        appCompatEditText2.perform(replaceText("b"), closeSoftKeyboard());
-//
-////        pressBack();
-//
-//        ViewInteraction appCompatButton = onView(
-//                allOf(withId(R.id.login_button), withText("Login"),
-//                        childAtPosition(
-//                                allOf(withId(R.id.layout_2),
-//                                        childAtPosition(
-//                                                withClassName(is("android.widget.FrameLayout")),
-//                                                2)),
-//                                2),
-//                        isDisplayed()));
-//        appCompatButton.perform(click());
-//
-////        pressBack();
-////
-////        pressBack();
-////
-////        ViewInteraction appCompatButton2 = onView(
-////                allOf(withId(R.id.login_button), withText("Login"),
-////                        childAtPosition(
-////                                allOf(withId(R.id.layout_2),
-////                                        childAtPosition(
-////                                                withClassName(is("android.widget.FrameLayout")),
-////                                                2)),
-////                                2),
-////                        isDisplayed()));
-////        appCompatButton2.perform(click());
-//
-//        ViewInteraction appCompatButton3 = onView(
-//                allOf(withId(R.id.safety), withText("자전거 탑승 시 안전수칙"),
-//                        childAtPosition(
-//                                childAtPosition(
-//                                        withClassName(is("android.widget.ScrollView")),
-//                                        0),
-//                                5)));
-//        appCompatButton3.perform(scrollTo(), click());
-
         ViewInteraction appCompatImageView = onView(
                 allOf(withId(R.id.btn_expand_toggle),
                         childAtPosition(
